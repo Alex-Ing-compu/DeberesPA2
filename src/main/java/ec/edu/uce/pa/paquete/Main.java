@@ -9,9 +9,6 @@ import jakarta.inject.Inject;
 public class Main implements QuarkusApplication{
 
     @Inject 
-    private PedidoService pedidoService;
-
-    @Inject 
     private MatriculaService matriculaService;
 
     public static void main(String[] args) {
@@ -24,10 +21,6 @@ public class Main implements QuarkusApplication{
     public int run(String... args){
 
         System.out.println("Iniciando aplicacion Quarkus");
-
-        Pedido pedido =new Pedido("Juan ", "laptop", 1500, "juan@a.com");
-
-        this.pedidoService.realizar(pedido);
 
         System.out.println("------------------------------");
         System.out.println("Sistema de matriculacion");
