@@ -1,11 +1,33 @@
 package ec.edu.uce.paquete.cliente.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity 
+@Table(name="cliente")
 public class Cliente {
 
+    @Id 
+    @SequenceGenerator(name="cliente_seq",sequenceName="cliente_seq_db",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cliente_seq")
+    @Column(name="clie_id") 
     private Integer id;
+
+    @Column(name="clie_nombre")
     private String nombre;
+
+    @Column(name="clie_correo")
     private String correo;
+
+    @Column(name="clie_telefono")
     private String telefono;
+
+    @Column(name="clie_direccion")
     private String direccion;
 
     
@@ -39,5 +61,11 @@ public class Cliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    @Override
+    public String toString() {
+        return "Cliente [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono
+                + ", direccion=" + direccion + "]";
+    }
+    
     
 }
